@@ -1,15 +1,13 @@
 import 'package:flutter/material.dart';
 import 'pages/home_page.dart';
 import 'pages/personal_page.dart';
+import 'pages/movie_page.dart';
 
 class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: MainPage(),
-      theme: ThemeData(
-        primaryColor: Colors.redAccent
-      ),
+      home: MainPage()
     );
   }
 }
@@ -24,10 +22,11 @@ class MainPage extends StatefulWidget {
 class MainPageState extends State<MainPage> {
   final _items = <BottomNavigationBarItem>[
     BottomNavigationBarItem(icon: Icon(Icons.ac_unit), title: Text('首页')),
+    BottomNavigationBarItem(icon: Icon(Icons.movie), title: Text('电影')),
     BottomNavigationBarItem(icon: Icon(Icons.access_time), title: Text('我的')),
   ];
 
-  final _pages = <Widget>[HomePage(), PersonalPage()];
+  final _pages = <Widget>[HomePage(), MoviePage(), PersonalPage()];
 
   final _pageController = PageController();
 

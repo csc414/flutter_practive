@@ -71,7 +71,7 @@ class _HomePageState extends State<HomePage> with AutomaticKeepAliveClientMixin 
                 
               );
             }
-
+            var obj = _ls[i];
             return ListTile(
               title: Text(_ls[i].asPascalCase),
               leading: LayoutBuilder(
@@ -82,6 +82,9 @@ class _HomePageState extends State<HomePage> with AutomaticKeepAliveClientMixin 
                   );
                 },
               ),
+              onTap: () {
+                print(obj.asPascalCase);
+              },
             );
           },
           separatorBuilder: (context, i) {
