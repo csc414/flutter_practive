@@ -34,18 +34,23 @@ class SearchBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var hintColor = Theme.of(context).hintColor;
+    var accentColor = Theme.of(context).accentColor;
     return Row(
       children: <Widget>[
         Expanded(
-          flex: 2,
+          flex: 1,
           child: ConstrainedBox(
             constraints: BoxConstraints(maxHeight: 40.0),
             child: TextField(
-              style: TextStyle(color: Theme.of(context).accentColor),
+              style: TextStyle(color: accentColor),
               decoration: InputDecoration(
                 contentPadding: const EdgeInsets.symmetric(vertical: 4.0),
                 hintText: '请输入搜索内容',
                 prefixIcon: Icon(Icons.search, color: hintColor),
+                suffixIcon: Padding(
+                  padding: EdgeInsets.fromLTRB(0, 0, 20.0, 0),
+                  child: Icon(Icons.mic_none, color: hintColor),
+                ),
                 border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(30.0),
                     borderSide: BorderSide.none),
@@ -58,26 +63,7 @@ class SearchBar extends StatelessWidget {
         SizedBox(
           width: 10.0,
         ),
-        Expanded(
-          flex: 1,
-          child: ConstrainedBox(
-            constraints: BoxConstraints(maxHeight: 40.0),
-            child: TextField(
-              style: TextStyle(color: Theme.of(context).accentColor),
-              decoration: InputDecoration(
-                contentPadding: const EdgeInsets.symmetric(vertical: 4.0),
-                hintText: '请输入搜索内容',
-                prefixIcon: Icon(Icons.search, color: hintColor),
-                suffixIcon: Icon(Icons.search, color: hintColor),
-                border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(30.0),
-                    borderSide: BorderSide.none),
-                filled: true,
-                fillColor: Color(0xFFF0F0F0),
-              ),
-            ),
-          ),
-        )
+        IconButton(icon: Icon(Icons.missed_video_call), onPressed: null)
       ],
     );
   }
